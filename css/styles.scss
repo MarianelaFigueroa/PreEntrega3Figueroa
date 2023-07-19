@@ -1,0 +1,687 @@
+// Media
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1280px;
+
+// Colors
+$border-color:rgba(80,80,80,0.5);
+$border-color-light:rgba(243,243,243,1);
+$box-shadow-color:rgba(50,50,50,0.8);
+$bg-left-balloon:rgb(162, 238, 243);
+$bg-center-balloon:rgba(255, 246, 136, 1);
+$bg-right-balloon:rgb(129, 207, 122);
+$footer-bg-color:rgba(255,255,255,1);
+$visited-color:rgba(243,0,0,1);
+
+// Sizes
+$header-height:80px;
+$footer-height: 50px;
+
+
+// Slideshow
+.slideshow-container {
+    position:absolute;
+    width: 820px;
+    margin:auto;
+
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Position the image container (needed to position the left and right arrows) */
+    .container {
+      position: relative;
+    }
+    
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
+      
+    }
+    
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+      cursor: pointer;
+    }
+    
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+    
+    /* Container for image text */
+    .caption-container {
+      text-align: center;
+      background-color: #222;
+      padding: 2px 16px;
+      color: white;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Six columns side by side */
+    .column {
+      float: left;
+      width: 16.66%;
+    }
+    
+    /* Add a transparency effect for thumnbail images */
+    .demo {
+      opacity: 0.6;
+    }
+    
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+}
+
+
+// -- Styles
+@media (min-width: $mobile) and (max-width: $tablet) {
+  body { 
+    header {
+      height: 80px;
+      border:none;
+      border-bottom: 1px solid $border-color;    
+      img.vertical-center{
+        transform: translateY(25%);
+      }
+    }  
+  
+    
+    .main {
+      height: 100%;          
+      position: fixed;
+      width: 100%;
+      display: inline-block;
+
+     
+
+      &.grid-container {
+        display: grid;      
+        grid-template-columns: 100%;           
+        grid-template-rows: 250px auto;       
+        column-gap: 10px;     
+
+        .background-container{
+          grid-area: 1;    
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end:4;
+          background-image: url(../images/guacahome.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          border:none;
+          border-bottom: 1px solid $border-color;
+        }
+
+        .item {
+          grid-area: 2;    
+          grid-row-end: none;
+          padding: 12pt;
+
+          &.left {         
+            & .balloon{
+              background-color:$bg-left-balloon;              
+            }          
+          }
+
+          &.center {
+            & .balloon{
+              background-color:$bg-center-balloon;            
+            }           
+          }
+
+          &.right {
+            & .balloon{
+              background-color:$bg-right-balloon;              
+            }           
+          }
+
+          .balloon {
+            width:100%;
+            height:auto;
+            min-height: 50px;
+            min-width: 120px;          
+            box-shadow: 5px 5px 4px $border-color;     
+            border-radius: 25px;    
+            padding-top: 7pt;
+            padding-bottom: 7pt;
+            padding-left: 14pt; 
+            padding-right: 14pt;
+
+            &.grid-container {
+              display: grid;      
+              grid-template-rows: 5pt auto;  
+              grid-template-columns: 80% 20%;           
+              // grid-template-rows: 250px auto;       
+              // column-gap: 10px;    
+
+              & img{
+                grid-column-start: 2;
+                width: 100%;
+                height: auto;
+                margin-top: 50%;
+                transform: translateY(-50%);
+                box-shadow: 5px 5px 4px $box-shadow-color;   
+              }
+
+              & .content{
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 2;
+              }
+            }
+          }        
+        }      
+      }
+    }
+
+    footer {
+      z-index: 99;
+      border:none;
+      border-top:1px solid $border-color;
+      height: 50px;
+      bottom: 0px;
+      position: fixed;
+      width: 100%;
+      background-color:$footer-bg-color;
+      
+      .align-right{
+        float: right;
+        text-align: center;
+        margin-right: 20px;
+        line-height: 50px;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $tablet) and (max-width: $desktop) {
+  body { 
+    header {
+      height: 80px;
+      border:none;
+      border-bottom: 1px solid $border-color;    
+      img.vertical-center{
+        transform: translateY(25%);
+      }
+    }  
+    .main {
+      height: 100%;          
+      position: fixed;
+      width: 100%;
+      display: inline-block;
+
+      &.grid-container {
+        display: grid;      
+        grid-template-columns: 20% 60% 20%;           
+        grid-template-rows: 250px auto;       
+        column-gap: 10px;     
+
+        .background-container{
+          grid-area: 1;    
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end:4;
+          background-image: url(../images/guacahome.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          border:none;
+          border-bottom: 1px solid $border-color;
+        }
+
+        .item {
+          grid-area: 2;    
+          grid-row-end: none;
+          padding: 12pt;
+
+          &.left {         
+            & .balloon{
+              background-color:$bg-left-balloon;              
+            }          
+          }
+
+          &.center {
+            & .balloon{
+              background-color:$bg-center-balloon;            
+            }           
+          }
+
+          &.right {
+            & .balloon{
+              background-color:$bg-right-balloon;              
+            }           
+          }
+
+          .balloon {
+            width:100%;
+            height:auto;
+            min-height: 50px;
+            min-width: 120px;          
+            box-shadow: 5px 5px 4px $border-color;     
+            border-radius: 25px;    
+            padding-top: 7pt;
+            padding-bottom: 7pt;
+            padding-left: 14pt; 
+            padding-right: 14pt;
+
+            &.grid-container {
+              display: grid;      
+              grid-template-rows: 5pt auto;  
+              grid-template-columns: 100%;           
+              // grid-template-rows: 250px auto;       
+              // column-gap: 10px;    
+
+              & img{
+                grid-column-start: 2;
+                width: 100%;
+                height: auto;
+                margin-top: 50%;
+                transform: translateY(-50%);
+                box-shadow: 5px 5px 4px $box-shadow-color;   
+              }
+
+              & .content{
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 2;
+              }
+            }
+          }        
+        }      
+      }
+    }
+
+    footer {
+      z-index: 99;
+      border:none;
+      border-top:1px solid $border-color;
+      height: 50px;
+      bottom: 0px;
+      position: fixed;
+      width: 100%;
+      background-color:$footer-bg-color;
+
+      .align-right{
+        float: right;
+        text-align: center;
+        margin-right: 20px;
+        line-height: 50px;
+      }
+    }
+
+  }
+}
+
+@media (min-width: $desktop)  {
+  body { 
+    header {
+      height: $header-height;
+      border:none;
+      border-bottom: 1px solid $border-color;    
+      img.vertical-center{
+        transform: translateY(25%);
+      }
+      .nav-item{
+        .selected{
+          border-bottom: 3px solid $visited-color;
+        }
+      }
+    }  
+    .main {
+      height: 100%;          
+      position: fixed;
+      width: 100%;
+      display: inline-block;
+
+      .l-b-l {
+        border-left:1px solid $border-color-light;
+      }
+      .l-b-t {
+        border-top:1px solid $border-color-light;
+      }
+      .l-b-r {
+        border-right:1px solid $border-color-light;
+      }
+      .l-b-b {
+        border-bottom:1px solid $border-color-light;
+      }
+
+      .heart-icon { 
+        position: relative; 
+        width: 20px; 
+        height: 18px; 
+      } 
+    
+      .heart-icon:before, 
+      .heart-icon:after { 
+          position: absolute; 
+          content: ""; 
+          left: 10px; 
+          top: 0; 
+          width: 10px; 
+          height: 16px; 
+          background: red; 
+          border-radius: 50px 50px 0 0; 
+          transform: rotate(-45deg); 
+          transform-origin: 0 100%; 
+      } 
+      
+      .heart-icon:after { 
+          left: 0; 
+          transform: rotate(45deg); 
+          transform-origin :100% 100%; 
+      }
+
+
+      &.grid-container {
+        display: grid;      
+        grid-template-columns: 20% 60% 20%;           
+        grid-template-rows: 250px auto;       
+        column-gap: 10px;    
+        height: calc(100% - $footer-height); 
+
+        .background-container{
+          grid-area: 1;    
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end:4;
+          background-image: url(../images/guacahome.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          border:none;
+          border-bottom: 1px solid $border-color;
+        }
+
+        .item {
+          grid-area: 2;    
+          grid-row-end: none;
+          padding: 12pt;
+          height: calc(100% - $footer-height);
+          &.vertical-scroll{
+            overflow-y:scroll;
+          }
+          &.left {         
+            & .balloon{
+              background-color:$bg-left-balloon;              
+            }          
+          }
+
+          &.center {
+            & .balloon{
+              background-color:$bg-center-balloon;            
+            }           
+          }
+
+          &.right {
+            & .balloon{
+              background-color:$bg-right-balloon;              
+            }           
+          }
+
+          p:first-child{
+            text-indent:4rem;
+          }
+
+          .balloon {
+            width:100%;
+            height:auto;
+            min-height: 50px;
+            min-width: 120px;          
+            box-shadow: 5px 5px 4px $border-color;     
+            border-radius: 25px;    
+            padding-top: 7pt;
+            padding-bottom: 7pt;
+            padding-left: 14pt; 
+            padding-right: 14pt;
+
+            &.grid-container {
+              display: grid;      
+              grid-template-rows: 5pt auto;  
+              grid-template-columns: 80% 20%;           
+              // grid-template-rows: 250px auto;       
+              // column-gap: 10px;    
+
+              & img{
+                grid-column-start: 2;
+                width: 100%;
+                height: auto;
+                margin-top: 50%;
+                transform: translateY(-50%);
+                box-shadow: 5px 5px 4px $box-shadow-color;   
+              }
+
+              & .content{
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 2;
+              }
+            }
+          }        
+        }   
+        
+        .gallery-container{
+          display: inline-block;
+          .blog-url-1{
+            background-image: url(../images/guaca1.jpg);
+          }
+          .blog-url-2{
+            background-image: url(../images/guaca2.jpg);
+          }
+          .blog-url-3{
+            background-image: url(../images/guaca3.jpg);
+          }
+          .blog-url-4{
+            background-image: url(../images/guaca4.jpg);
+          }
+          .gallery-item{
+            overflow: hidden;
+            inset: 0px auto auto 0px;
+            margin: 0px;
+            width: 454px;
+            height: 454px;
+            opacity: 1;
+            display: block;           
+            box-shadow: 5px 5px 4px $border-color;    
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; 
+            display: inline-block;
+            margin: 2rem;
+
+            & .blog-post{
+              padding-left: 30px;
+              padding-right: 30px;
+              margin-top: 80%;
+              font-size: 1.5rem;
+              text-decoration: none;              
+              & .link{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                height: 100%;
+                & a{
+                  color:white;
+                  position: relative;
+                  display: block;
+                  text-decoration: none;
+                }
+              }
+              & .info{
+                margin-top:10px;
+                border-top: 1px solid rgba(171,171,171,1);
+                width: 100%;
+                left: 0px;
+                right: 0px;
+                display: inline-block;
+                bottom: 27px;
+                inset-inline-start: 24px;
+                inset-inline-end: 24px;
+                color:white;
+                & .description{
+                  display: flex;
+                  line-height: normal;
+                  font-style: inherit;
+                  font-weight: inherit;
+                  text-decoration: inherit;
+                  & .left{
+                    display: flex;
+                    -webkit-margin-end: 16px;
+                    margin-inline-end: 16px;
+                    overflow: hidden;
+                    & .post-stats{
+                      display: flex;
+                      align-items: center;
+                      overflow: hidden;
+                      white-space: nowrap;
+                      & span{
+                        position: relative;
+                        display: inline-flex;
+                        align-items: center;
+                        -webkit-padding-end: 2px;
+                        padding-inline-end: 2px;
+                      }
+                      & a{
+                        display: inline-flex;
+                        color: inherit;
+                        font: inherit;
+                        overflow: hidden;
+                        position: relative;
+                      }
+                    }
+                  }
+                  & .right{
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    flex: 2;
+                    button{
+                      &.like{
+                        border: 0;
+                        background: none;
+                        padding: 0;
+                        color: inherit;
+                        font: inherit;
+                        font-size: inherit !important;
+                        line-height: 1;
+                        & span{
+                          display: inline-flex;
+                          align-items: center;
+                          & span{
+                            padding-inline-end: 5px;
+                          }
+                          & div.like{
+                            position: relative;
+                            display: inline-block;
+                            cursor: pointer;
+                            width: 19px;
+                            height: 19px;
+                            vertical-align: middle;
+                           
+                            background-size: contain;
+                            background-position: center;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+      z-index: 99;
+      border:none;
+      border-top:1px solid $border-color;
+      height: $footer-height;
+      bottom: 0px;
+      position: fixed;
+      width: 100%;
+      background-color:$footer-bg-color;
+      .social-media-container{
+        text-align: center;
+        margin-top: 7px;    
+      }
+      .icon {
+        width: 32px;
+        height: 32px;
+        background-image: url(../images/icons/icons.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        margin-left:15px;
+        margin-right:15px;
+        &.facebook{
+          background-position: 0px 0px;
+        }
+        &.instagram{
+          background-position: -80px 0px;
+        }
+        &.twitter{
+          background-position: -40px 0px;
+        }
+        &.whatsapps{
+          background-position: -40px -36px;
+        }
+      }
+      .align-right{
+        float: right;
+        text-align: center;
+        margin-right: 20px;
+        line-height: $footer-height;
+        margin-top: -35px;       
+      }
+    }
+
+  }
+}
