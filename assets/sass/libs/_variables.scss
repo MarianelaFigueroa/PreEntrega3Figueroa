@@ -1,0 +1,78 @@
+// Misc.
+	$misc: (
+		z-index-base:		10000
+	);
+
+// Duration.
+	$duration: (
+		navPanel:			0.5s,
+		transition:			0.2s
+	);
+
+// Size.
+	$size: (
+		navPanel:			275px,
+		border-radius:		6px,
+		element-height:		3em,
+		element-margin:		2em,
+		container-width:	60em
+	);
+
+// Font.
+	$font: (
+		family:				('Source Sans Pro', sans-serif),
+		family-fixed:		monospace,
+		weight:				300,
+		weight-bold:		400,
+	);
+
+// Palette.
+	$palette: (
+		bg:					#f5f5f5,
+		fg:					#777,
+		fg-bold:			#646464,
+		fg-light:			#999,		
+		border:				#e5e5e5,
+		bg-border:			#f8f8f8,
+		bg-border-a:		#f0f0f0,
+		bg-box:				#fff,
+		// border2:			#dddddd,
+		// border2-bg:			#f0f0f0,
+		lk-border:			rgba(255,255,255,0.05),
+		bg-presentation:    rgba(0, 0, 0, 0.8),
+
+		header: (
+			bg:				#444,
+			fg:				#bbb,
+			fg-bold:		#fff,
+			fg-light:		#999,
+			hb:				#9f978b,
+		),
+
+		banner:(
+			bg:				#666,
+			fg:				#fff,		
+		),
+
+		balloon: (
+			bg: 			#f7f1e3,
+			bg-sb:			rgba(50,50,50,0.4),			
+		),
+
+		alt: (
+			fg:				rgba(255,255,255,0.75),
+			bg-bs:			#e5e5e5,		
+			bg-button: 		rgba(255,255,255,0.2),
+			bg-button-sb:   rgba(255,255,255,0.5),
+			bg-button-hover:rgba(255,255,255,0.1),
+			bg-button-active:rgba(255,255,255,0.2),
+			bg-disabled:	rgba(0,0,0,0.15),
+			fg-button:		#fff,
+			bg-button-primary:#666,
+		),
+
+		footer:(
+			bg: 		   	#f0f0f0,
+			bg-border:     	#dddddd,
+		)
+	);

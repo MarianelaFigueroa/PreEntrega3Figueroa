@@ -1,13 +1,17 @@
 // Sass configuration
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "Sass Compile",
+        "label": "Sass Compile Main",
         "type": "shell",
-        "command": "sass css/styles.scss css/styles.css",
+        "command": "sass assets/sass/main.scss assets/css/main.css",
+        "group": "build"
+      },
+      {
+        "label": "Sass Compile Carrousel",
+        "type": "shell",
+        "command": "sass assets/sass/carrousel.scss assets/css/carrousel.css",
         "group": "build"
       }
     ]
